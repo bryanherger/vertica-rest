@@ -1,7 +1,7 @@
 package com.herger.verticarest;
 
 public class VerticaSql {
-	private String fields, table, where, order, group, limit;
+	private String fields, table, where, order, group, limit, offset;
 	
 	public VerticaSql() {
 		fields = "*";
@@ -18,6 +18,9 @@ public class VerticaSql {
 		}
 		if (order != null) {
 			sql = sql + " ORDER BY " + order;
+		}
+		if (offset != null) {
+			sql = sql + " OFFSET " + offset;
 		}
 		if (limit != null) {
 			sql = sql + " LIMIT " + limit;
@@ -71,5 +74,13 @@ public class VerticaSql {
 
 	public void setLimit(String limit) {
 		this.limit = limit;
+	}
+
+	public String getOffset() {
+		return offset;
+	}
+
+	public void setOffset(String offset) {
+		this.offset = offset;
 	}
 }

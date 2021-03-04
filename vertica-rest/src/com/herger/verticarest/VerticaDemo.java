@@ -1,14 +1,11 @@
 package com.herger.verticarest;
 
 import java.security.Key;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.Base64;
 import java.util.Set;
 
 import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.PermitAll;
-import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
@@ -27,8 +24,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.io.Encoders;
 import io.jsonwebtoken.security.Keys;
 
 @DeclareRoles({"ADMIN"})
@@ -37,11 +32,6 @@ public class VerticaDemo {
 	// https://mkyong.com/webservices/jax-rs/jax-rs-queryparam-example/
 	
 	VerticaJdbcAdapter vertica = new VerticaJdbcAdapter();
-
-	public static String JDBC_DRIVER = "com.vertica.jdbc.Driver";
-	public static String JDBC_URL = "jdbc:vertica://192.168.1.206:5433/d2";
-	public static String JDBC_USER = "dbadmin";
-	public static String JDBC_PASS = "Vertica1!";
 
 	@Path("/license")
 	@GET
